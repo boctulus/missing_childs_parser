@@ -1,0 +1,8 @@
+Pasos:
+
+1) Ponerse en contacto con los otros miembros.
+2) Elegir día y hora de reunión (lo antes posible)
+3) Discutir ideas para la app
+4) Diseño de las vistas
+5) Prototiparlo con datos de prueba
+6) Integración con la API

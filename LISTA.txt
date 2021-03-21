@@ -1,0 +1,98 @@
+ARMAR LOS GRUPOS!!!
+
+por país
+por tecnología
+por seniority -equilibrar
+
+
++ Terminar la API  !!!!!!!!!!!!!
+
++ Subir la API a Heroku
+y compartir el GitHub -público-
+
+
+# México
+
+Alberto|alonso.cruz2795@gmail.com | 7321076854 | App tipo web | Vue js, Django, Laravel | Jr Developer Full stack | MX
+
+Guadalupe Gutiérrez|marygpe.gc@gmail.com|+529993420701|app web o app Móvil| php -javascript -mysql- css| nivel medio en web y principiante en movil | MX  <--- le interesa web scrapping 
+
+Angel Lopez | Tel 9671461637 | miguel13314469@gmail.com| Python, JavaScript, PHP, MySQL, Laravel,. | MX
+
+
+# Colombia
+
+Juan Perez| jperez@gmail.com | +57 300000000 | App Híbrida | PHP, Laravel, NodeJs, Java, Angular,Flutter| semi-senior | Colombia
+
+Cristián <@Enekoos> | +573176703596 | se un poco de Java, flutter, html, CSS, JS, cristiannhoyoss@gmail.com
+
+Rene|renejosecardonaherrera@gmail.com|+573023469759|app web|python, flutter, angular
+
+Francisco  franciscodizzxx@gmail.com +573134215158 React, JavaScript oyente
+
+
+
+# Argentina
+
+Marcelo|sistemas.marcelovieira@gmail.com|+54 9 11 22540287|app web|Java, springBoot, angular
+
+Lourdes Reynaldo| lourdes.reynaldo@gmail.com |+54 92314624937 |html,css,JavaScript,React, NodeJs (un poco de angular)|Jr | Argentina
+
+Roman Basso | +54 9 353 4277041 | zhaktos98@gmail.com | diseñador gráfico | Argentina | web
+
+Eitel|  eitel.trabajo@gmail.com| +54 9223 5297804| HTML, CSS, JavaScript, Vue.js, .NET, MySql | "oyente"
+
+Vladimir Gutierrez| vladimirgutierrez4063gmail.com | +54 9 2254 533331 | Frontend | Python, Bots, Testing | Junior | Argentina
+
+David | david.paleyy@gmail.com, laburo con JS hace mas de 10 años, mi especialidad es react en el front y node en el back | Uruguay
+
+
+# Perú
+
+davidgustavomaringabriel090402@gmail.com/ +51917454842/oyente
+
+Javier Fuentes | javierfuentes545@gmail.com | +51974563258 | App Híbrida | React, React Native, Sass| junior | Actualmente en Perú, soy de Venezuela | SSr
+
+Alex| japt2808@gmail.com | +51992271338 | app tipo web | PHP, Laravel, Js | Junior
+Si se puede quisiera ser oyente en Flutter y Python | Perú
+
+jssmy| servidorlogico@gmail.com | +51968122367 | PHP, Laravel, NodeJs, Java, Angular,Flutter| SSr
+
+Christian Matamoros|christianmatamoros98@gmail.com|+51902010823|VB|C#|vb|Android  | Jr
+
+
+# Rep. Dominicana
+
+Esme | elisaulmorillo@gmail.com| +1 829 619 4493 | web app| asp.net, firebase, node.js, angular | USA
+
+
+# Nicaragua
+
+marquezkrodriguez24@gmail.com|+505 77653737|app web|Javascript, NodeJs, ReactJs, React Native básico | Graphql | Nicaragua
+
+
+# El Salvador
+
+@Eduardo <Erick Eduardo Campos> | erickcampos.rivas@gmail.com | java, jsf, postgress, sqlserver y aprendiendo angular, c#, php y phyton | El Salvador | Jr.
+
+
+
+# Chile
+
+Jorge| darkj.chile@gmail.com | +56961216266| app tipo web | Bootstrap,Nodejs,Python,Php,Java
+
+
+# España
+
+Jean Pierre | jruizcaisa22@gmail.com| JavaScript, java, c++, ASP.net , react, TailwindCSS, MsSQL, Linux bash, servidores en Linux| estudiante de desarrollo de software multiplataforma | +34 655051564 España
+
+
+# Ecuador
+
+Carlos|carlospuya1985@gmail.com|0990857088|oyente | ecuador
+
+
+# Desconocido
+
+Alejandro.19833@gmail.com crea web| oyente
+

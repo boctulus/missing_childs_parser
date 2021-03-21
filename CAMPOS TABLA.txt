@@ -1,0 +1,20 @@
+persons
+-----------------------------
+id 					: string
+fullname			: string
+file_id				: int 		<--- otro endpoint
+age_photo			: string
+date_missing		: date
+age_missing			: int
+location			: string
+
+ori_data			: string
+ori_id	 			: string
+found  				: bool
+extras 				: json
+
+
+files
+-----------
+id 					: int
+filename_as_stored	: string

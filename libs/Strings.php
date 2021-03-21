@@ -2,9 +2,9 @@
 
 class Strings 
 {
-	static function match(string $str, $pattern, callable $fn = NULL){
+	static function match(string $str, $pattern, $fn = NULL){
 		if (preg_match($pattern, $str, $matches)){
-			if ($fn != NULL)
+			if ($fn != NULL && is_callable($fn))
 				$matches[1] = call_user_func($fn, $matches[1]);
 			
 			return $matches[1];
@@ -155,11 +155,11 @@ class Strings
 	/**
 	* String replace nth occurrence
 	* 
-	* @param	type $search  		Search string
-	* @param	type $replace	 	Replace string
-	* @param	type $subject	 	Source string
-	* @param	type $occurrence 	Nth occurrence
-	* @return	type 				Replaced string
+	* @param	string $search  	Search string
+	* @param	string $replace	 	Replace string
+	* @param	string $subject	 	Source string
+	* @param	int    $occurrence 	Nth occurrence
+	* @return	string 				Replaced string
 	* @author	filipkappa
 	*/
 	static function replaceNth($search, $replace, $subject, $occurrence)

@@ -3,17 +3,22 @@
 include 'libs/Debug.php';
 include 'libs/Strings.php';
 include 'libs/Date.php';
+include 'libs/Logger.php';
 include 'MissingPerson.php';
 
 if (php_sapi_name() != 'cli'){
-    throw new Exception("App solo de terminal", 1);
+    logger("App solo de terminal", 1);
 }
 
 $id = $argv[1] ?? null;
 
 if ($id === null){
-    throw new Exception("Id es requerido", 1);    
+    logger("Id es requerido", 1);    
 }
+
+Logger::setFile("log.txt");
+Logger::setTimestamp("D M d 'y h.i A");
+
 
 $html = trim(file_get_contents('http://www.missingchildren.org.ar/datos.php?action=view&id='.$id));
 
@@ -24,6 +29,14 @@ if ($html == 'No ha sido encontrada la persona en la base de datos'){
 
 
 libxml_use_internal_errors(true);
+
+function logger(string $msg, $exit = false){
+    Logger::putLog($msg);
+
+    if ($exit){
+        die;
+    }
+}
 
 function get_year_diff(string $date_ini, string $date_end = null){
     $ini = new DateTime($date_ini); // formato: aaaa-mm-dd
@@ -59,7 +72,7 @@ foreach($tables as $table) {
                 $imgtags = $cols[0]->getElementsByTagName('img');
                 
                 if ($imgtags->length != 1){
-                    throw new Exception("Número inesperado de imágenes", 1);
+                    logger("Id $id - Número inesperado de imágenes", 1);
                 }
 
                $imgsrc = trim($imgtags->item(0)->getAttribute('src'));
@@ -68,6 +81,7 @@ foreach($tables as $table) {
 
             foreach ($cols as $col) {
                 $text = trim($col->textContent);
+                $text = str_replace(["\t",  json_decode('"'."\u00a0".'"')], ['', ''],$text);
                 $textos[] = $text;                
             }            
         }
@@ -100,36 +114,47 @@ if (Strings::endsWith('bandera.jpg', $imgsrc)){
 }
 
 
+function debug(Array $data){
+    foreach ($data as $key => $dato) {
+        if (is_bool($dato)){
+            $dato = ($dato === false ? 'false' : 'true');
+        }
+
+        echo "$key  $dato\r\n";
+    }
+}
+
+
 // Datos extraidos (más o menos crudos)
 
-$fullname   = Strings::matchOrFail($textos[3], '/([a-z ]{3,})/i', 'Nombre no encontado');
-$fromdate   = Date::extract_date($textos[5]);
-$age_photo  = Strings::matchOrFail($textos[8],'/([0-9]{1,2}) años/',  'Edad en la foto no encontrada');
-$age_now    = Strings::matchOrFail($textos[10],'/([0-9]{1,2}) años/', 'Edad actual no encontrada');
-$location   = $textos[16];
-
+try {
+    $fullname   = Strings::matchOrFail($textos[3], '/([a-z ]{3,})/i', 'Nombre no encontado');
+    $fromdate   = Date::extract_date($textos[5]);
+    $age_photo  = Strings::match($textos[8],'/([0-9]{1,2}) años/',  'Edad en la foto no encontrada');
+    $age_now    = Strings::match($textos[10],'/([0-9]{1,2}) años/', 'Edad actual no encontrada');
+    $location   = $textos[16];
+} catch (Exception $e){
+    logger("Id $id - ". $e->getMessage());
+    exit;
+}
+    
 
 // Reacomodo datos como deben presentarse a la interfaz
 
 $person     = new MissingPerson();
 $person->fullname        = $fullname;
 $person->file_url        = $imgsrc; 
-$person->date_missing    = $fromdate;
-$person->age_photo       = $age_photo;
-$person->location        = $location;
+$person->date_missing    = $fromdate  ?? null;
+$person->age_photo       = $age_photo ?? null;
+$person->location        = $location  ?? null;
 $person->ori_data        = 'missingchildren.org.ar';
 $person->ori_id          = $id;   
-$person->found           = $found;
-$person->extras          = null;  // empty JSON
+$person->found           = $found ?? false;
+$person->extras          = [];  // empty JSON
 
 
 // Genero respuesta
 
 $data = $person->getData();
-foreach ($data as $key => $dato) {
-    if (is_bool($dato)){
-        $dato = ($dato === false ? 'false' : 'true');
-    }
+echo json_encode($data);
 
-    echo "$key  $dato\r\n";
-}

@@ -1261,6 +1261,27 @@ HTML;
 
 $patt = '/datos\.php\?action=view&id=([0-9]+)/i';
 
-preg_match_all($patt,$html,$result);
+$ok = preg_match_all($patt,$html,$result);
 
-dd($result);
+if (!$ok){
+    throw new Exception("Error procesando lista", 1);
+}
+
+$ids = $result[1];
+
+$recs = [];
+foreach ($ids as $id){
+    $r_encoded = shell_exec("php missingchildren_ar_view.php $id");
+    if ($r_encoded == null){
+        continue;
+    }
+
+    $r = json_decode($r_encoded);
+    $recs[] = $r;
+}
+
+file_put_contents("missingchildren_ar.json", json_encode($recs, JSON_PRETTY_PRINT));
+
+
+
+
